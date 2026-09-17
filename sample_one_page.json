@@ -1,0 +1,69 @@
+{
+  "basics": {
+    "name": "Reginald \"Buffer\" Overflow",
+    "title": "Site Reliability Engineer & Professional Yak Shaver",
+    "location": "Localhost, 127.0.0.1",
+    "phone": "(555) 867-5309",
+    "email": "reggie@blameless-postmortem.dev",
+    "website": "reggie.sh",
+    "linkedin": "linkedin.com/in/bufferoverflow",
+    "github": "github.com/bufferoverflow",
+    "summary": "Battle-hardened SRE who treats pagers as personal enemies and error budgets as sacred scripture. Fluent in turning 3 a.m. incidents into tidy runbooks and turning flaky tests into former flaky tests. Believes the best on-call shift is the one nobody notices."
+  },
+  "experience": [
+    {
+      "position": "Senior Site Reliability Engineer",
+      "company": "Null Pointer Financial",
+      "location": "Remote (behind seven proxies)",
+      "start_date": "Mar 2022",
+      "end_date": "Present",
+      "highlights": [
+        "Slashed mean-time-to-recovery from \"eventually\" to 11 minutes by rewriting the incident runbook nobody had read since the Obama administration.",
+        "Herded 240 microservices into a coherent SLO framework, reducing false-positive alerts by 83% and reclaiming the on-call team's will to live.",
+        "Automated toil away with Python and Ansible, eliminating roughly 15 hours a week of humans copy-pasting YAML into the void."
+      ]
+    },
+    {
+      "position": "DevOps Engineer",
+      "company": "Recursive Descent Consulting",
+      "location": "Stack Overflow, USA",
+      "start_date": "Jun 2019",
+      "end_date": "Feb 2022",
+      "highlights": [
+        "Built CI/CD pipelines so reliable that deployments became boring, which is the highest compliment a pipeline can receive.",
+        "Containerized a legacy monolith held together by cron jobs and prayer, cutting cloud spend by 41%.",
+        "Introduced infrastructure-as-code, retiring the sacred 'do_not_touch.sh' script and its 400 lines of undocumented mystery."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.S.",
+      "field": "Computer Science (Minor in Rubber Duck Debugging)",
+      "institution": "University of Undefined Behavior",
+      "location": "Segfault, CA",
+      "start_date": "2015",
+      "end_date": "2019",
+      "details": [
+        "Senior thesis: \"It Works On My Machine: A Reproducibility Crisis.\""
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Google IT Automation with Python Professional Certificate",
+      "issuer": "Google / Coursera",
+      "date": "2023"
+    },
+    {
+      "name": "Certified Kubernetes Administrator (CKA)",
+      "issuer": "The Linux Foundation",
+      "date": "2022"
+    }
+  ],
+  "skills": [
+    "Python", "Bash", "Go", "Linux", "Docker", "Kubernetes", "Terraform",
+    "Ansible", "Prometheus", "Grafana", "CI/CD", "GitHub Actions", "AWS",
+    "PostgreSQL", "Nginx", "Incident Response", "Observability", "SLOs"
+  ]
+}

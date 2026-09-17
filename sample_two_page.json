@@ -1,0 +1,120 @@
+{
+  "basics": {
+    "name": "Ada \"Kernel Panic\" Lovelace-Torvalds",
+    "title": "Principal Platform Engineer & Chief Incident Whisperer",
+    "location": "The Cloud (multi-region, active-active)",
+    "phone": "(555) 404-0000",
+    "email": "ada@statuspage-is-green.io",
+    "website": "kernelpanic.dev",
+    "linkedin": "linkedin.com/in/kernelpanic",
+    "github": "github.com/kernelpanic",
+    "summary": "Principal platform engineer with a decade of turning chaos into dashboards and dashboards into good decisions. Specializes in the dark arts of distributed systems, capacity planning, and explaining to executives why 'just add more servers' is not a strategy. Has personally apologized to more load balancers than most people have met."
+  },
+  "experience": [
+    {
+      "position": "Principal Platform Engineer",
+      "company": "Byzantine Fault Tolerance Corp",
+      "location": "Remote (consensus pending)",
+      "start_date": "Jan 2021",
+      "end_date": "Present",
+      "highlights": [
+        "Architected a self-healing Kubernetes platform serving 12 billion requests/day, achieving four nines of uptime and one nine of engineer sanity.",
+        "Designed a multi-region failover strategy tested via monthly chaos engineering game days, during which the team learned to stop worrying and love the outage.",
+        "Reduced cloud spend by $2.3M annually by rightsizing workloads that had been provisioned for a traffic spike that happened once, in 2019, for eleven minutes.",
+        "Mentored a team of 9 engineers, three of whom now refuse to deploy on Fridays out of principle rather than fear.",
+        "Established an error-budget policy that turned 'move fast and break things' into 'move deliberately and break fewer things.'"
+      ]
+    },
+    {
+      "position": "Staff Site Reliability Engineer",
+      "company": "Heisenbug Industries",
+      "location": "Superposition, WA",
+      "start_date": "Aug 2018",
+      "end_date": "Dec 2020",
+      "highlights": [
+        "Built an observability stack (metrics, logs, traces) that finally answered the eternal question: 'is it the network?' (It was never the network.)",
+        "Led migration of 180 services from bare metal to containers with zero data loss and only mild existential dread.",
+        "Wrote the incident-response playbook now used company-wide, including the legendary chapter titled 'Have You Tried Turning The Region Off And On Again?'",
+        "Cut alert noise by 76% by deleting alerts nobody had acted on since the Mesozoic era."
+      ]
+    },
+    {
+      "position": "DevOps Engineer",
+      "company": "Off-By-One Solutions",
+      "location": "Fencepost, TX",
+      "start_date": "Jul 2016",
+      "end_date": "Jul 2018",
+      "highlights": [
+        "Replaced a 2,000-line deploy script with a declarative pipeline, sparking both a 60% faster release cycle and a small office celebration.",
+        "Automated database backups after The Incident That Shall Not Be Named, restoring both data integrity and management's blood pressure.",
+        "Introduced GitOps workflows, ending the ancient tradition of deploying by SSHing into prod and hoping."
+      ]
+    },
+    {
+      "position": "Junior Systems Administrator",
+      "company": "Segfault & Sons, LLC",
+      "location": "Core Dump, OH",
+      "start_date": "Jun 2014",
+      "end_date": "Jun 2016",
+      "highlights": [
+        "Kept a fleet of aging servers alive through sheer force of will and a suspiciously large collection of USB drives.",
+        "Wrote first automation scripts in Python, beginning a lifelong campaign against doing anything twice by hand."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "M.S.",
+      "field": "Distributed Systems",
+      "institution": "Institute of Eventual Consistency",
+      "location": "Quorum, MA",
+      "start_date": "2012",
+      "end_date": "2014",
+      "details": [
+        "Thesis: \"CAP Theorem: Pick Two, Cry About the Third.\"",
+        "Teaching assistant for 'Concurrency & Other Race Conditions.'"
+      ]
+    },
+    {
+      "degree": "B.S.",
+      "field": "Computer Engineering",
+      "institution": "Polytechnic University of Premature Optimization",
+      "location": "Bottleneck, IL",
+      "start_date": "2008",
+      "end_date": "2012",
+      "details": [
+        "Graduated magna cum laude, or as the registrar's database recorded it, 'magna cum NULL.'"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Google IT Automation with Python Professional Certificate",
+      "issuer": "Google / Coursera",
+      "date": "2023"
+    },
+    {
+      "name": "Certified Kubernetes Administrator (CKA)",
+      "issuer": "The Linux Foundation",
+      "date": "2022"
+    },
+    {
+      "name": "AWS Certified Solutions Architect \u2013 Professional",
+      "issuer": "Amazon Web Services",
+      "date": "2021"
+    },
+    {
+      "name": "HashiCorp Certified: Terraform Associate",
+      "issuer": "HashiCorp",
+      "date": "2020"
+    }
+  ],
+  "skills": [
+    "Python", "Go", "Bash", "Rust", "Linux", "Docker", "Kubernetes", "Helm",
+    "Terraform", "Ansible", "Pulumi", "AWS", "GCP", "Azure", "Prometheus",
+    "Grafana", "Loki", "OpenTelemetry", "Datadog", "PagerDuty", "CI/CD",
+    "GitHub Actions", "ArgoCD", "GitOps", "PostgreSQL", "Redis", "Kafka",
+    "Nginx", "Envoy", "Istio", "Chaos Engineering", "Incident Response",
+    "Capacity Planning", "SLOs & Error Budgets", "Distributed Tracing"
+  ]
+}

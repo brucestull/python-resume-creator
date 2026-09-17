@@ -1,0 +1,50 @@
+{
+  "basics": {
+    "name": "",
+    "title": "",
+    "location": "",
+    "phone": "",
+    "email": "",
+    "website": "",
+    "linkedin": "",
+    "github": "",
+    "summary": ""
+  },
+  "experience": [
+    {
+      "position": "",
+      "company": "",
+      "location": "",
+      "start_date": "",
+      "end_date": "",
+      "highlights": [
+        "",
+        ""
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "",
+      "field": "",
+      "institution": "",
+      "location": "",
+      "start_date": "",
+      "end_date": "",
+      "details": [
+        ""
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "",
+      "issuer": "",
+      "date": ""
+    }
+  ],
+  "skills": [
+    "",
+    ""
+  ]
+}

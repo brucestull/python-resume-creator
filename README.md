@@ -30,6 +30,7 @@ uv add python-docx
 ```
 # Build from one of the sample files
 uv run python resume_builder.py -i sample_one_page.json -o out/resume.docx
+uv run python resume_builder.py -i sample_two_page.json -o out/resume.docx
 
 # Your real resume
 uv run python resume_builder.py -i my_resume.json -o out/resume.docx

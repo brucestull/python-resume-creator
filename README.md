@@ -1,5 +1,7 @@
 # Resume Creator
 
+- [Python resume creator with JSON data source - ClaudeAI](https://claude.ai/chat/ab05ad06-2bc9-40e8-b1d8-ca9ac2dd0667)
+
 A small CLI that builds an **ATS-friendly Word (.docx) resume** from a JSON file.
 
 ## Why it's built this way (ATS notes)

@@ -12,6 +12,7 @@ Design goals (why it looks the way it does):
   * Standard font (Calibri), real bold/size for hierarchy instead of graphics.
   * Skills rendered as comma-separated rows (packed to a readable line width),
     which parsers split cleanly on the commas.
+  * Contact links (email, phone, website, LinkedIn, GitHub) are clickable.
 
 Usage:
     python resume_builder.py --input sample_one_page.json --output resume.docx
@@ -35,6 +36,8 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_TAB_ALIGNMENT
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 from docx.shared import Pt, RGBColor, Inches
+from docx.text.run import Run
+from docx.opc.constants import RELATIONSHIP_TYPE as RT
 
 
 # --------------------------------------------------------------------------- #
@@ -120,6 +123,49 @@ def _right_tab(paragraph, content_width_in: float):
     )
 
 
+def add_hyperlink(paragraph, text, url):
+    """
+    Return an ordinary, styleable Run that is wrapped in a hyperlink to *url*.
+
+    python-docx has no high-level hyperlink API. The trick that keeps this
+    small: register the URL as an external relationship (which writes it into
+    word/_rels/document.xml.rels and hands back an id), wrap a fresh run element
+    in a <w:hyperlink r:id="..."> element, then hand that run back through
+    python-docx's own Run class so the caller can style it with _set_run() just
+    like any other run.
+    """
+    r_id = paragraph.part.relate_to(url, RT.HYPERLINK, is_external=True)
+    link = OxmlElement("w:hyperlink")
+    link.set(qn("r:id"), r_id)
+    r = OxmlElement("w:r")
+    link.append(r)
+    paragraph._p.append(link)            # append() preserves build order
+    run = Run(r, paragraph)
+    run.text = text
+    return run
+
+
+def _contact_href(field: str, value: str) -> str | None:
+    """
+    Turn a contact value into a proper link target, or None if it isn't a link.
+    The display text stays whatever is in the JSON (e.g. the short
+    'linkedin.com/in/you'); only the underlying target gets a scheme added.
+    """
+    value = value.strip()
+    if not value:
+        return None
+    if field == "email":
+        return value if value.startswith("mailto:") else "mailto:" + value
+    if field == "phone":
+        digits = "".join(c for c in value if c.isdigit() or c == "+")
+        return "tel:" + digits if digits else None
+    if field in ("website", "linkedin", "github"):
+        if value.startswith(("http://", "https://")):
+            return value
+        return "https://" + value
+    return None   # location, etc. -> plain text
+
+
 # --------------------------------------------------------------------------- #
 # Section builders                                                             #
 # --------------------------------------------------------------------------- #
@@ -141,20 +187,23 @@ def build_header(doc: Document, basics: dict[str, Any], st: Style) -> None:
         _set_run(p.add_run(title),
                  size=st.title_size, color=st.muted, font=st.font_name)
 
-    # Contact line: only include fields that are present, joined by " | "
+    # Contact line: only include fields that are present, joined by " | ".
+    # Linkable fields (email/phone/website/linkedin/github) become clickable;
+    # the display text is unchanged, only the link target gets a scheme.
     fields = ["location", "phone", "email", "website", "linkedin", "github"]
-    parts = [str(basics[f]).strip() for f in fields
-             if basics.get(f) and str(basics[f]).strip()]
-    if parts:
+    present = [(f, str(basics[f]).strip()) for f in fields
+               if basics.get(f) and str(basics[f]).strip()]
+    if present:
         p = doc.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         _tight(p, after=6)
-        for i, part in enumerate(parts):
+        for i, (field, value) in enumerate(present):
             if i:
                 _set_run(p.add_run("  |  "), size=st.contact_size,
                          color=st.muted, font=st.font_name)
-            _set_run(p.add_run(part), size=st.contact_size,
-                     color=st.text, font=st.font_name)
+            href = _contact_href(field, value)
+            run = add_hyperlink(p, value, href) if href else p.add_run(value)
+            _set_run(run, size=st.contact_size, color=st.text, font=st.font_name)
 
 
 def build_section_header(doc: Document, text: str, st: Style) -> None:

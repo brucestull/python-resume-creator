@@ -29,10 +29,10 @@ uv add python-docx
 
 ```
 # Build from one of the sample files
-python resume_builder.py -i sample_one_page.json -o resume.docx
+uv run python resume_builder.py -i sample_one_page.json -o resume.docx
 
 # Your real resume
-python resume_builder.py -i my_resume.json -o resume.docx
+uv run python resume_builder.py -i my_resume.json -o resume.docx
 ```
 
 Start by copying `template.json`, filling it in, and pointing the tool at it.

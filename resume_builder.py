@@ -349,9 +349,37 @@ def build_skills(doc: Document, skills: list[str], st: Style) -> None:
 
 
 # --------------------------------------------------------------------------- #
+# Opt-out filtering                                                            #
+# --------------------------------------------------------------------------- #
+# An entry is included unless it explicitly says '"include": false'. So your
+# existing data needs no changes; to hide something you add one line. The
+# --all flag (include_all=True) ignores every flag and renders everything.
+def _keep_entries(entries: list[dict], include_all: bool) -> list[dict]:
+    """Opt-out filter for dict entries (experience, education, certs)."""
+    if include_all:
+        return entries
+    return [e for e in entries if e.get("include", True)]
+
+
+def _keep_skills(skills: list, include_all: bool) -> list[str]:
+    """
+    Skills may be plain strings (always kept) or {"name": ..., "include": bool}
+    objects (kept unless include is false). Returns a flat list of skill names.
+    """
+    out: list[str] = []
+    for s in skills:
+        if isinstance(s, dict):
+            if include_all or s.get("include", True):
+                out.append(str(s.get("name", "")).strip())
+        else:
+            out.append(str(s).strip())
+    return [s for s in out if s]
+
+
+# --------------------------------------------------------------------------- #
 # Document assembly                                                            #
 # --------------------------------------------------------------------------- #
-def build_resume(data: dict[str, Any], st: Style) -> Document:
+def build_resume(data: dict[str, Any], st: Style, include_all: bool = False) -> Document:
     doc = Document()
 
     # Base document defaults
@@ -368,10 +396,10 @@ def build_resume(data: dict[str, Any], st: Style) -> Document:
 
     build_header(doc, data.get("basics", {}), st)
     build_summary(doc, data.get("basics", {}).get("summary", ""), st)
-    build_experience(doc, data.get("experience", []), st)
-    build_education(doc, data.get("education", []), st)
-    build_certifications(doc, data.get("certifications", []), st)
-    build_skills(doc, data.get("skills", []), st)
+    build_experience(doc, _keep_entries(data.get("experience", []), include_all), st)
+    build_education(doc, _keep_entries(data.get("education", []), include_all), st)
+    build_certifications(doc, _keep_entries(data.get("certifications", []), include_all), st)
+    build_skills(doc, _keep_skills(data.get("skills", []), include_all), st)
     return doc
 
 
@@ -398,6 +426,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
                     help="approx max characters per skills row when width-packing")
     ap.add_argument("--margin", type=float, default=0.6,
                     help="page margin in inches (default: 0.6)")
+    ap.add_argument("--all", dest="include_all", action="store_true",
+                    help='ignore per-entry "include": false flags; render everything')
     return ap.parse_args(argv)
 
 
@@ -409,7 +439,7 @@ def main(argv: list[str] | None = None) -> None:
         margin_in=args.margin,
     )
     data = load_data(args.input)
-    doc = build_resume(data, st)
+    doc = build_resume(data, st, include_all=args.include_all)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     doc.save(str(args.output))
     print(f"wrote {args.output}")

@@ -2,6 +2,11 @@
   "basics": {
     "name": "Ada \"Kernel Panic\" Lovelace-Torvalds",
     "title": "Principal Platform Engineer & Chief Incident Whisperer",
+    "title_options": [
+      "Principal Platform Engineer & Chief Incident Whisperer",
+      "Principal Platform Engineer | Kubernetes · Distributed Systems · SRE",
+      "Platform Engineering Leader | Reliability · Observability · Cloud Cost"
+    ],
     "location": "The Cloud (multi-region, active-active)",
     "phone": "(555) 404-0000",
     "email": "ada@statuspage-is-green.io",
@@ -60,6 +65,18 @@
         "Kept a fleet of aging servers alive through sheer force of will and a suspiciously large collection of USB drives.",
         "Wrote first automation scripts in Python, beginning a lifelong campaign against doing anything twice by hand."
       ]
+    },
+    {
+      "include": false,
+      "position": "Professional Rubber Duck",
+      "company": "Freelance",
+      "location": "A Desk Near You",
+      "start_date": "2012",
+      "end_date": "2014",
+      "highlights": [
+        "Listened patiently while engineers explained their bugs out loud and solved them mid-sentence.",
+        "Maintained a 100% resolution rate without saying a single word."
+      ]
     }
   ],
   "education": [
@@ -107,6 +124,12 @@
       "name": "HashiCorp Certified: Terraform Associate",
       "issuer": "HashiCorp",
       "date": "2020"
+    },
+    {
+      "include": false,
+      "name": "Certified Floppy Disk Defragmenter",
+      "issuer": "Retro Computing Guild",
+      "date": "1998"
     }
   ],
   "skills": [
@@ -115,6 +138,8 @@
     "Grafana", "Loki", "OpenTelemetry", "Datadog", "PagerDuty", "CI/CD",
     "GitHub Actions", "ArgoCD", "GitOps", "PostgreSQL", "Redis", "Kafka",
     "Nginx", "Envoy", "Istio", "Chaos Engineering", "Incident Response",
-    "Capacity Planning", "SLOs & Error Budgets", "Distributed Tracing"
+    "Capacity Planning", "SLOs & Error Budgets", "Distributed Tracing",
+    { "name": "COBOL", "include": false },
+    { "name": "Punch Card Debugging", "include": false }
   ]
 }

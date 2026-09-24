@@ -2,6 +2,11 @@
   "basics": {
     "name": "Reginald \"Buffer\" Overflow",
     "title": "Site Reliability Engineer & Professional Yak Shaver",
+    "title_options": [
+      "Site Reliability Engineer & Professional Yak Shaver",
+      "Site Reliability Engineer | Python · Ansible · Kubernetes · Observability",
+      "DevOps Engineer | CI/CD · Terraform · Incident Response"
+    ],
     "location": "Localhost, 127.0.0.1",
     "phone": "(555) 867-5309",
     "email": "reggie@blameless-postmortem.dev",
@@ -34,6 +39,17 @@
         "Containerized a legacy monolith held together by cron jobs and prayer, cutting cloud spend by 41%.",
         "Introduced infrastructure-as-code, retiring the sacred 'do_not_touch.sh' script and its 400 lines of undocumented mystery."
       ]
+    },
+    {
+      "include": false,
+      "position": "Help Desk Intern",
+      "company": "Department of Redundancy Department",
+      "location": "Echo, OR",
+      "start_date": "Jun 2018",
+      "end_date": "Aug 2018",
+      "highlights": [
+        "Asked users whether they had tried turning it off and on again, then asked again, for redundancy."
+      ]
     }
   ],
   "education": [
@@ -64,6 +80,10 @@
   "skills": [
     "Python", "Bash", "Go", "Linux", "Docker", "Kubernetes", "Terraform",
     "Ansible", "Prometheus", "Grafana", "CI/CD", "GitHub Actions", "AWS",
-    "PostgreSQL", "Nginx", "Incident Response", "Observability", "SLOs"
+    "PostgreSQL",
+    { "name": "Nginx", "include": true },
+    "Incident Response", "Observability", "SLOs",
+    { "name": "Perl", "include": false },
+    { "name": "Fax Machine Administration", "include": false }
   ]
 }

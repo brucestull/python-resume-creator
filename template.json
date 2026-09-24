@@ -2,6 +2,10 @@
   "basics": {
     "name": "",
     "title": "",
+    "title_options": [
+      "",
+      ""
+    ],
     "location": "",
     "phone": "",
     "email": "",
@@ -12,6 +16,7 @@
   },
   "experience": [
     {
+      "include": true,
       "position": "",
       "company": "",
       "location": "",
@@ -25,6 +30,7 @@
   ],
   "education": [
     {
+      "include": true,
       "degree": "",
       "field": "",
       "institution": "",
@@ -38,6 +44,7 @@
   ],
   "certifications": [
     {
+      "include": true,
       "name": "",
       "issuer": "",
       "date": ""
@@ -45,6 +52,6 @@
   ],
   "skills": [
     "",
-    ""
+    { "name": "", "include": true }
   ]
 }
